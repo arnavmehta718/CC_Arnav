@@ -136,12 +136,12 @@ void draw(){
   
   String s = "Starting";
   String w = "stop";
-  String space = "Press any key to play";
+  String space = "Press any key to play. Goal is to brake all the bottles in the fastest time.";
   stroke(0);
   fill(255);
   textSize(24);
   text(s, 455, 30);  // Text wraps within text box
-  text(space, 150, 70, 200, 100);
+  text(space, 200, 150, 200, 200);
   text(w, 475, 950);  // Text wraps within text box
   
   m = millis();
