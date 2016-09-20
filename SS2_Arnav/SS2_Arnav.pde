@@ -1,4 +1,7 @@
 // Short story 2
+// use the mouse to drag the box towards the bottles and press the left or right trigger to click
+//one all bottles are borken click on the stop button to see your time
+// to restart bring mouse to start and press and key
 
 float wide = 100;
 float high = 100;
