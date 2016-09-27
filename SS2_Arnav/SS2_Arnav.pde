@@ -152,6 +152,11 @@ void draw(){
   line(0, 1000, mouseX-(wide/2), mouseY+(wide/2));
   line(1000, 1000, mouseX+(wide/2), mouseY+(wide/2));
   line(1000, 0, mouseX+(wide/2), mouseY-(wide/2));
+  
+  if(R1 == 255 && R2 == 255 && R3 == 255 && R4 == 255 && R5 == 255 && R6 == 255 && R7 == 255)
+  {
+    noLoop();
+  }
 }
   
 void mousePressed(){
@@ -197,10 +202,6 @@ void mousePressed(){
     G7 = 3;
     B7 = 3;
   }
-  else if(mouseX > 450 && mouseX < 550 && mouseY > 900 && mouseY < 1000 && R1 == 255 && R2 == 255 && R3 == 255 && R4 == 255 && R5 == 255 && R6 == 255 && R7 == 255)
-  {
-    noLoop();
-  }
 }
 void keyPressed(){
     background(255, 3, 3);
@@ -232,5 +233,4 @@ void keyPressed(){
     
     loop();
 }
-  
-  
+    
