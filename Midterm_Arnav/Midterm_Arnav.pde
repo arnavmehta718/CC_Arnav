@@ -1,4 +1,6 @@
-int f = 0; //<>//
+//The Game //<>//
+
+int f = 0;
 int t = 0;
 int p = 0;
 int items = 0;
