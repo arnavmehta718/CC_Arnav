@@ -79,7 +79,7 @@ void draw(){
     fill(255);
     textSize(100);
     textAlign(CENTER);
-    text("Hopes and Dreams", 600, 200, 800, 200);
+    text("Hopes and Dreams", 600, 200, 800, 400);
   }
   else if(scene == 1){
     line = 0;
