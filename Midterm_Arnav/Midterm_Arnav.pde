@@ -78,7 +78,8 @@ void draw(){
     text("Press Here to play",650,610,400,100); 
     fill(255);
     textSize(100);
-    text("Journey Home!", 600, 200, 800, 200);
+    textAlign(CENTER);
+    text("Hopes and Dreams", 600, 200, 800, 200);
   }
   else if(scene == 1){
     line = 0;
