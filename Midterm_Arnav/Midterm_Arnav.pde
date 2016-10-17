@@ -4,13 +4,15 @@ int f = 0;
 int t = 0;
 int p = 0;
 int items = 0;
+int cash = 30;
 float it = 0;
 int yes = 0;
-int scene = 0;
+int scene = 2;
 int fill1 = 255;
 int fill2 = 255;
 int fill3 = 255;
 int fill4 = 255;
+int fill5 = 255;
 int currentTime = 0;
 int time = 0;
 int pop = 0;
@@ -146,6 +148,13 @@ void draw(){
     text("Alcohol", 2900-t, 310);
     fill(#E15DFF);
     text("Condos", 3500-t, 310);
+    
+    fill(255);
+    rect(1100,120, 180,130);
+    stroke(0);
+    fill(0);
+    String cash2 = str(cash) + "$";
+    text(cash2, 1100,155);
     
     textAlign(LEFT);
     
@@ -598,27 +607,33 @@ void draw(){
         p = ((millis()-currentTime)/1000)+pop;
     }
 }
-  
+
+textAlign(CENTER);
   if(p >= 450 && p<= 465 && scene == 1){
       choose();
       fill(0);
       textSize(32);
-      text("Buy Flowers", 200, 1100);
-      text("Keep Walking", 800, 1100);
+      text("Buy Flowers", 300, 1100);
+      text("Keep Walking", 900, 1100);
   }
   else if(p >= 1050 && p<= 1065 && scene == 1){
       choose();
       fill(0);
       textSize(32);
-      text("Buy Chocolates", 200, 1100);
-      text("Keep Walking", 800, 1100);
+      text("Buy Chocolates", 300, 1100);
+      text("Keep Walking", 900, 1100);
       }
    else if(p == 1 && scene == 2){
       choose();
       fill(0);
       textSize(32);
-      text("Tulips(4$)", 240, 1100);
-      text("Roses(5$)", 840, 1100);  
+      text("Tulips(4$)", 300, 1100);
+      text("Roses(5$)", 900, 1100);
+      fill(fill5);
+      rect(600,1095,150,50,50);
+      textSize(18);
+      fill(0);
+      text("No thanks", 600, 1100);
    }
    else if(p == 4 && scene == 2){
       scene = 1;
@@ -633,7 +648,12 @@ void draw(){
       textSize(32);
       textAlign(CENTER);
       text("White Chocolate(4$)", 300, 1100, 250, 100);
-      text("Dark Chocolate(6$)", 900, 1100, 250, 100);  
+      text("Dark Chocolate(6$)", 900, 1100, 250, 100); 
+      fill(fill5);
+      rect(600,1095,150,50,50);
+      textSize(18);
+      fill(0);
+      text("No thanks", 600, 1100);
    }
    else if(p == 4 && scene == 4){
       scene = 1;
@@ -646,16 +666,21 @@ void draw(){
       choose();
       fill(0);
       textSize(32);
-      text("Buy Candles", 200, 1100);
-      text("Keep Walking", 800, 1100);
+      text("Buy Candles", 300, 1100);
+      text("Keep Walking", 900, 1100);
       }
    else if(p == 1 && scene == 5){
       choose();
       fill(0);
       textSize(32);
       textAlign(CENTER);
-      text("Vanilla(5$)", 300, 1100,250,100);
-      text("Cinnamon(5$)", 900, 1100,250,100);  
+      text("Vanilla(6$)", 300, 1100,250,100);
+      text("Cinnamon(7$)", 900, 1100,250,100);
+      fill(fill5);
+      rect(600,1095,150,50,50);
+      textSize(18);
+      fill(0);
+      text("No thanks", 600, 1100);
    }
    else if(p == 4 && scene == 5){
       scene = 1;
@@ -668,16 +693,22 @@ void draw(){
       choose();
       fill(0);
       textSize(32);
-      text("Buy Alcohol", 200, 1100);
-      text("Keep Walking", 800, 1100);
+      text("Buy Alcohol", 300, 1100);
+      text("Keep Walking", 900, 1100);
       }
    else if(p == 1 && scene == 6){
       choose();
       fill(0);
       textSize(32);
       textAlign(CENTER);
-      text("Champange(10$)", 300, 1100,250,100);
-      text("Wine(8$)", 900, 1100,250,100);  
+      text("Champange(20$)", 300, 1100,250,100);
+      text("Wine(15$)", 900, 1100,250,100); 
+      fill(fill5);
+      rect(600,1095,150,50,50);
+      textSize(18);
+      fill(0);
+      text("No thanks", 600, 1100);
+      
    }
    else if(p == 4 && scene == 6){
       scene = 1;
@@ -728,6 +759,12 @@ void draw(){
         text("A dozen Roses it is.",750, 170, 200, 70);
         change = 2;
       }
+      else if(line == 3 && scene == 2){
+        image(bubb, 550, 100, 400, 200);
+        textSize(20);
+        text("Maybe next time.",750, 170, 200, 70);
+        change = 3;
+      }
       else if(line == 0 && scene == 4){
       image(bubb, 550, 100, 400, 200);
       textSize(20);
@@ -744,6 +781,12 @@ void draw(){
         textSize(20);
         text("A box of Dark it is.",750, 170, 200, 70);
         change = 2;
+      }
+      else if(line == 3 && scene == 4){
+        image(bubb, 550, 100, 400, 200);
+        textSize(20);
+        text("Maybe next time.",750, 170, 200, 70);
+        change = 3;
       }
       else if(line == 0 && scene == 5){
       image(bubb, 550, 100, 400, 200);
@@ -762,6 +805,12 @@ void draw(){
         text("Cinnamon candles it is.",750, 170, 200, 70);
         change = 2;
       }
+      else if(line == 3 && scene == 5){
+        image(bubb, 550, 100, 400, 200);
+        textSize(20);
+        text("Maybe next time.",750, 170, 200, 70);
+        change = 3;
+      }
       else if(line == 0 && scene == 6){
       image(bubb, 550, 100, 400, 200);
       textSize(20);
@@ -778,6 +827,12 @@ void draw(){
         textSize(20);
         text("Wine it is.",750, 170, 200, 70);
         change = 2;
+      }
+      else if(line == 3 && scene == 6){
+        image(bubb, 550, 100, 400, 200);
+        textSize(20);
+        text("Maybe next time.",750, 170, 200, 70);
+        change = 3;
       }
    
    
@@ -807,6 +862,12 @@ void draw(){
     else{
       fill4 = 255;
     }
+    if(mouseX < 675 && mouseX > 525 && mouseY < 1125 && mouseY > 1075){
+      fill5 = 200;
+    }
+    else{
+      fill5 = 255;
+    }
    
 }
 
@@ -831,8 +892,9 @@ void mousePressed(){
        angleChange = 1;
        legangleChange = 1;
     }
-    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 2 && time == 0){
+    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 2 && time == 0 && cash >= 4){
        line = 1;
+       cash -= 4;
        currentTime = millis();
        t = 0;
        p = 0;
@@ -840,8 +902,9 @@ void mousePressed(){
        pop = 2;
        items += 1;
     }
-    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 2 && time == 0){
+    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 2 && time == 0 & cash >= 5){
       line = 2;
+      cash -= 5;
       currentTime = millis();
        t = 0;
        p = 0;
@@ -875,8 +938,9 @@ void mousePressed(){
        angleChange = 1;
       legangleChange = 1;
     }
-    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 4 && time == 0){
+    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 4 && time == 0 && cash >= 4){
        line = 1;
+       cash -= 4;
        currentTime = millis();
        t = 0;
        p = 0;
@@ -884,8 +948,9 @@ void mousePressed(){
        pop = 2;
        items += 4;
     }
-    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 4 && time == 0){
+    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 4 && time == 0 && cash >= 6){
       line = 2;
+      cash -= 6;
       currentTime = millis();
        t = 0;
        p = 0;
@@ -911,8 +976,9 @@ void mousePressed(){
        angleChange = 1;
       legangleChange = 1;
     }
-    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 5 && time == 0){
+    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 5 && time == 0 && cash >= 6){
        line = 1;
+       cash -= 6;
        currentTime = millis();
        t = 0;
        p = 0;
@@ -920,8 +986,9 @@ void mousePressed(){
        pop = 2;
        items += 16;
     }
-    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 5 && time == 0){
+    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 5 && time == 0 && cash >= 7){
       line = 2;
+      cash -= 7;
       currentTime = millis();
        t = 0;
        p = 0;
@@ -947,8 +1014,9 @@ void mousePressed(){
        angleChange = 1;
       legangleChange = 1;
     }
-    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 6 && time == 0){
+    else if(mouseX < 450 && mouseX > 150 && mouseY < 1190 && mouseY > 1010 && scene  == 6 && time == 0 && cash >= 20){
        line = 1;
+       cash -= 20;
        currentTime = millis();
        t = 0;
        p = 0;
@@ -956,8 +1024,9 @@ void mousePressed(){
        pop = 2;
        items += 64;
     }
-    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 6 && time == 0){
+    else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 6 && time == 0 && cash >= 15){
       line = 2;
+      cash -= 15;
       currentTime = millis();
        t = 0;
        p = 0;
@@ -977,12 +1046,44 @@ void mousePressed(){
     else if(mouseX < 1050 && mouseX > 750 && mouseY < 1190 && mouseY > 1010 && scene == 1 && time == 2166){
       currentTime = millis();
       scene = 0;
-       t = 2166;
-       p = 2266;
-       time = 2166;
-       pop = 2266;
+       t = 2766;
+       p = 2866;
+       time = 2766;
+       pop = 2866;
        angleChange = 1;
       legangleChange = 1;
+    }
+    else if(mouseX < 675 && mouseX > 525 && mouseY < 1150 && mouseY > 1050 && scene == 2){
+       line = 3;
+       currentTime = millis();
+       t = 0;
+       p = 0;
+       time = 0;
+       pop = 2;
+    }
+    else if(mouseX < 675 && mouseX > 525 && mouseY < 1150 && mouseY > 1050 && scene == 4){
+       line = 3;
+       currentTime = millis();
+       t = 0;
+       p = 0;
+       time = 0;
+       pop = 2;
+    }
+    else if(mouseX < 675 && mouseX > 525 && mouseY < 1150 && mouseY > 1050 && scene == 5){
+       line = 3;
+       currentTime = millis();
+       t = 0;
+       p = 0;
+       time = 0;
+       pop = 2;
+    }
+    else if(mouseX < 675 && mouseX > 525 && mouseY < 1150 && mouseY > 1050 && scene == 6){
+       line = 3;
+       currentTime = millis();
+       t = 0;
+       p = 0;
+       time = 0;
+       pop = 2;
     }
     
   
@@ -1005,11 +1106,9 @@ void drawRobot()
   stroke(#FFB62E);
   strokeWeight(20);
   drawLeftArm();
-
-  drawRightArm();
-
   drawLeftLeg();
   drawRightLeg();
+  drawRightArm();
   stroke(0);
   strokeWeight(5);
 }
@@ -1050,6 +1149,14 @@ void drawRightArm()
   translate(0,-130);
   rotate(radians(-armAngle));
   line(0, 0, 60, -50); // right arm
+  strokeWeight(2);
+  fill(#E054FC);
+  stroke(#E054FC);
+  line(60,-50, 70, -70);
+  line(60,-50, 50, -70);
+  rect(60, -90, 40, 40);
+  stroke(#FFB62E);
+  strokeWeight(20);
   popMatrix();
 }
 
