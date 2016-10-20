@@ -7,7 +7,7 @@ int items = 0;
 int cash = 30;
 float it = 0;
 int yes = 0;
-int scene = 2;
+int scene = 0;
 int fill1 = 255;
 int fill2 = 255;
 int fill3 = 255;
@@ -79,7 +79,8 @@ void draw(){
     fill(0);
     stroke(0);
     textSize(36);
-    text("Press Here to play",650,610,400,100); 
+    textAlign(CENTER);
+    text("Press Here to play",600,610,400,100); 
     fill(255);
     textSize(100);
     textAlign(CENTER);
@@ -721,8 +722,8 @@ textAlign(CENTER);
       choose();
       fill(0);
       textSize(32);
-      text("Ask her out.", 200, 1100);
-      text("Go home.", 800, 1100);
+      text("Ask her out.", 300, 1100);
+      text("Go home.", 900, 1100);
       }
    else if( p == 3 && scene == 3){
      scene = 1;
