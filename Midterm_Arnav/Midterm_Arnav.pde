@@ -84,7 +84,7 @@ void draw(){
     fill(255);
     textSize(100);
     textAlign(CENTER);
-    text("Hopes and Dreams", 600, 200, 800, 400);
+    text("Dating Delemma", 600, 300, 800, 400);
   }
   else if(scene == 1){
     line = 0;
@@ -291,7 +291,7 @@ void draw(){
     rect(600,600,1200,1200);
     fill(255);
     textSize(48);
-    text("This is the Journey of you asking a girl out.", 600,600,400, 400);
+    text("Help control Timmy's life", 600,600,400, 400);
     
     if(t == 3){
     }
