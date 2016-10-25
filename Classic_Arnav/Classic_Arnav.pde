@@ -28,7 +28,7 @@ void setup(){
   for (int i = 0; i<pizza.length; i++){
     X[i] = int(random(180, 450));
     Y[i] = int(random(-400, 200));
-    pizza[i]= new Pizza(X[i], Y[i], 80, 80, i, int(random(1,11)));
+    pizza[i]= new Pizza(X[i], Y[i], 80, 80, i);
   }
 }
 

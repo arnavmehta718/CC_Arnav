@@ -5,17 +5,15 @@ class Pizza{
   int diameter;
   int diameter1;
   int count;
-  int speed;
 
   //constructor
   //constructor arguments are temp- used to initialize variables in object
-  Pizza(int tempX, int tempY, int tempDiameter, int tempDiameter1, int tempC, int tempS){
+  Pizza(int tempX, int tempY, int tempDiameter, int tempDiameter1, int tempC){
     x = tempX;
     y = tempY;
     diameter = tempDiameter;
     diameter1 = tempDiameter1;
     count = tempC;
-    speed = tempS;
   }
 //method: display pizza  
   void display(){
@@ -41,7 +39,7 @@ class Pizza{
   void fall(){
     if (y>height+100){
       y =-100;
-      pizza[count] = new Pizza(int(random(200, 400)), int(random(-400,-100)), 80, 80, count, int(random(1,11)));
+      pizza[count] = new Pizza(int(random(200, 400)), int(random(-400,-100)), 80, 80, count);
     } else{
       y ++;
     }
