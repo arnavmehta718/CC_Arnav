@@ -6,6 +6,7 @@ class Sketch{
     var = tempv;
   }
   
+  //draws the triangle for each itirations
   void drawer(){
   blendMode(BLEND);
   tint(255, 127);
