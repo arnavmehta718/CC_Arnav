@@ -1,4 +1,4 @@
-;//The Game //<>//
+//The Game //<>//
 
 int f = 0;
 int t = 0;
