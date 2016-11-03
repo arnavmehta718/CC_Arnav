@@ -1,4 +1,10 @@
 
+/*  Artistic values, By Arnav Mehta
+    The sketch reflects my SS3 sketch, but takes the input from the audience whether to stop, start, or clear. 
+    It draws the shapes on top of a image, and continuous drawing non=stop unless told to stop. 
+    instructions included: commands, type start to start, stop to stop, and clear to clear.
+*/
+
 var var1 = 0;
 var input, button, greeting;
 var imag;
