@@ -20,14 +20,14 @@ function setup(){
   image(imag, 0 ,0,imag.width/2,imag.height/2);
   
   input = createInput();
-  input.position(20, 65);
+  input.position(10, 50);
 
   button = createButton('submit');
-  button.position(150, 65);
+  button.position(140, 50);
   button.mousePressed(greet);
 
   greeting = createElement('h2', 'Tell me when to start:');
-  greeting.position(20, 5);
+  greeting.position(10, 5);
   fill(255)
   stroke(255);
   textAlign(CENTER)
