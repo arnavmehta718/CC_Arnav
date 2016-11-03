@@ -87,6 +87,9 @@ void draw() {
       }
     player1.patch(out);
     player1.play();
+    if(player1.isPlaying() == false){
+      scene =0;
+    }
     fill(fill10);
     rectMode(CENTER);
     rect(width*.075,height*.925, width*.1, height*.05);
