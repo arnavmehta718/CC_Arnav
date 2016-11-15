@@ -64,4 +64,10 @@ void draw(){
   
   ellipse(mouseX,mouseY, 50,50);
   
+  if( mousePressed == true && mouseX >= width/2){
+    filter(DILATE);
+  }
+  if( mousePressed == true && mouseX <= width/2){
+    filter(ERODE);
+  }
 }
