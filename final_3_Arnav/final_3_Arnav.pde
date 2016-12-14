@@ -158,7 +158,7 @@ void draw(){
     if(s1 == (t1+199)){
       s1 = value1*200;
     }
-    
+    print(s1);
     
     s2 = value2*200;
     t2 = s2;
@@ -289,6 +289,6 @@ void mousePressed(){
    else{
       player3.pause();
       player3.rewind();
-      player2  .loop();
+      player2.loop();
   }
 }
