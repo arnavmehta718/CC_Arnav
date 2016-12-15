@@ -14,9 +14,12 @@ AudioPlayer player3;
 
 Capture cam;  
 String[] cameras = Capture.list();
-int scene = 0;
+int scene = 3;
 int time = 0;
-PImage[] img = new PImage[160];
+PImage[] img = new PImage[320];
+PImage cover1 = new PImage();
+PImage cover2 = new PImage();
+PImage cover3 = new PImage();
 int icount = 0;
 int fill1 = 255;
 int c = 0;
@@ -40,7 +43,7 @@ int t6 = 0;
 int t7 = 0;
 int t8 = 0;
 int t9 = 0;
-IntList vidcount = new IntList(1,2,3,4,5,6,7,8,9);
+IntList vidcount = new IntList();
 int vid_counter = 1;
 int photo = 0;
 int value1 = 0;
@@ -53,6 +56,7 @@ int value7 = 0;
 int value8 = 0;
 int value9 = 0;
 int counter = 0;
+int currentTime = 0;
 
 void setup(){
   size(2000,1100);
@@ -63,7 +67,9 @@ void setup(){
   player2 = minim.loadFile("Lean And Dabb.mp3");
   player3 = minim.loadFile("Bonbon.mp3");
   
-  
+  cover1 = loadImage("bonbon.jpg");
+  cover2 = loadImage("lean&dabb.jpg");
+  cover3 = loadImage("allweknow.png");
   for(int y = 0; y < 10; y+=1){
     img[y] = loadImage("black.jpg");
   }
@@ -88,40 +94,38 @@ void setup(){
   for(int y = 70; y < 80; y+=1){
     img[y] = loadImage("yellow.png");
   }
-  for(int y = 80; y < 160; y+=1){
+  for(int y = 80; y < 320; y+=1){
     img[y] = loadImage("orange.png");
   }
-  player1.loop();
+  vidcount.append(1);
   background(0);
 }
 
 void draw(){
   if(scene == 0){
-    if((time%5 == 0) && (x < 10)){
-      if (cam.available()) { 
-        // Reads the new frame
-        cam.read();  
-        imageMode(CENTER);
-        image(cam,1000,500);
+    if(cam.available()){
+      cam.read();
+      background(0);
+      imageMode(CENTER);
+      image(cam,1000,500);
+    }
+    if((time%5 == 0) && (x < 20)){
         saveFrame("data/"+ vid_counter +"Image"+icount+".png");
         icount+=1;
         x = x+1;
       }
       
-    }
     time+=1;
+    println(millis(),time,x);
     
-    if(x == 10){
-      scene =1;
+    if(x == 20 && (millis() - currentTime > 10000)){
+      scene = 1;
       time = 0;
       icount = 0;
-      player1.pause();
-      player2.pause();
-      player3.pause();
     } 
   }
   if(scene == 1){
-    while (icount < 10){
+    while (icount < 20){
       img[z] = loadImage(vid_counter + "Image"+icount+".png");
       z++;
       icount+=1;
@@ -136,7 +140,6 @@ void draw(){
   }
    if(scene == 2){
      while(counter == 0){
-       player1.play();
        value1 = int(random(vidcount.size()));
        value2 = int(random(vidcount.size()));
        value3 = int(random(vidcount.size()));
@@ -149,85 +152,86 @@ void draw(){
        println(value1,value2,value3,value4,value5,value6,value7,value8,value9);
        counter+=1;
        background(0);
+       s1 = value1*20;
+       t1 = s1;
+       s2 = value2*20;
+       t2 = s2;
+       s3 = value3*20;
+       t3 = s3;
+       s4 = value4*20;
+       t4 = s4;
+       s5 = value5*20;
+       t5 = s5;
+       s6 = value6*20;
+       t6 = s6;
+       s7 = value7*20;
+       t7 = s7;
+       s8 = value8*20;
+       t8 = s8;
+       s9 = value9*20;
+       t9 = s9;
      }
-    
-    s1 = value1*200;
-    t1 = s1;
-    image(img[s1/20],333.33,166.66,666.66,333.33);
+    image(img[s1],333.33,166.66,666.66,333.33);
     s1+=1;
-    if(s1 == (t1+199)){
-      s1 = value1*200;
+    if(s1 == (t1+19)){
+      s1 = value1*20;
     }
-    print(s1);
-    
-    s2 = value2*200;
-    t2 = s2;
-    image(img[s2/20],1000,166.66,666.66,333.33);
+    println(s1,t1);
+
+    image(img[s2],1000,166.66,666.66,333.33);
     s2+=1;
-    if(s2 == (t2+199)){
-      s2 = value2*200;
+    if(s2 == (t2+19)){
+      s2 = value2*20;
     }
     
     
-    s3 = value3*200;
-    t3 = s3;
-    image(img[s3/20],1666.66,166.66,666.66,333.33);
+    image(img[s3],1666.66,166.66,666.66,333.33);
     s3+=1;
-    if(s3 == (t3+199)){
-      s3 = value3*200;
+    if(s3 == (t3+19)){
+      s3 = value3*20;
     }
     
-    s4 = value4*200;
-    t4 = s4;
-    image(img[s4/20],333.33,500,666.66,333.33);
+    
+    image(img[s4],333.33,500,666.66,333.33);
     s4+=1;
-    if(s4 == (t4+199)){
-      s4 = value4*200;
+    if(s4 == (t4+19)){
+      s4 = value4*20;
     }
     
     
-    s5 = value5*200;
-    t5 = s5;
-    image(img[s5/20],1000,500,666.66,333.33);
+    image(img[s5],1000,500,666.66,333.33);
     s5+=1;
-    if(s5 == (t5+199)){
-      s5 = value5*200;
+    if(s5 == (t5+19)){
+      s5 = value5*20;
     }
     
     
-    s6 = value6*200;
-    t6 = s6;
-    image(img[s6/20],1666.66,500,666.66,333.33);
+    image(img[s6],1666.66,500,666.66,333.33);
     s6+=1;
-    if(s6 == (t6+199)){
-      s6 = value6*200;
+    if(s6 == (t6+19)){
+      s6 = value6*20;
     }
     
-    s7 = value7*200;
-    t7 = s7;
-    image(img[s7/20],333.33,833.33,666.66,333.33);
+    
+    image(img[s7],333.33,833.33,666.66,333.33);
     s7+=1;
-    if(s7 == (t7+199)){
-      s7 = value7*200;
+    if(s7 == (t7+19)){
+      s7 = value7*20;
     }
     
-    s8 = value8*200;
-    t8 = s8;
-    image(img[s8/20],1000,833.33,666.66,333.33);
+    
+    image(img[s8],1000,833.33,666.66,333.33);
     s8+=1;
-    if(s6 == (t8+199)){
-      s8 = value8*200;
+    if(s8 == (t8+19)){
+      s8 = value8*20;
     }
     
-    s9 = value9*200;
-    t9 = s9;
-    image(img[s9/20],1666.66,833.33,666.66,333.33);
+
+    image(img[s9],1666.66,833.33,666.66,333.33);
     s9+=1;
-    if(s9 == (t9+199)){
-      s9 = value9*200;
+    if(s9 == (t9+19)){
+      s9 = value9*20;
     }
-    
-    
     
     rectMode(CENTER);
     fill(fill1);
@@ -243,52 +247,60 @@ void draw(){
     else{
       fill1 = 255;
     }
-    
    }
-  
+  if(scene == 3){
+    imageMode(CENTER);
+    image(cover1,333.33,500,666.66,1000);
+    image(cover2,1000,500,666.66,1000);
+    image(cover3,1666.66,500,666.66,1000);
+    
+    fill(255);
+    rectMode(CENTER);
+    rect(1000,150,2000,100);
+    fill(0);
+    textMode(CENTER);
+    textAlign(CENTER);
+    textSize(20);
+    text("Click here once you have selected your song.",1000,150);
+  }
 }
 
 void mousePressed(){
   if(mouseX > 960 && mouseX < 1040 && mouseY > 880 && mouseY < 920 && scene == 2){
-     scene = 0;
+     scene = 3;
      x = 0;
      time = 0;
      icount = 0;
      vid_counter+=1;
      background(0);
      counter = 0;
+     if(vidcount.size() < 16)
+     vidcount.append(1);
      
   }
-  else if(mouseX > width/2)
-    if(player1.isPlaying()){
-    player1.pause();
-    player1.rewind();
-    player2.loop();
-    }
-    else if(player2.isPlaying()){
-      player2.pause();
-      player2.rewind();
-      player3.loop();
-    }
-    else{
-      player3.pause();
-      player3.rewind();
-      player1.loop();
+  if(mouseY >= 100 && mouseY <= 200 && scene == 3){
+    scene = 0;
+    currentTime = millis();
   }
-  else if(mouseX < width/2)
-    if(player1.isPlaying()){
+  else if(mouseX < width/3 && scene == 3){
     player1.pause();
     player1.rewind();
+    player2.pause();
+    player2.rewind();
     player3.loop();
-    }
-   else if(player2.isPlaying()){
-      player2.pause();
-      player2.rewind();
-      player1.loop();
-    }
-   else{
-      player3.pause();
-      player3.rewind();
-      player2.loop();
+  }
+  else if(mouseX > 2*(width/3) && scene == 3){
+    player2.pause();
+    player2.rewind();
+    player3.pause();
+    player3.rewind();
+    player1.loop();
+  }
+  else if(scene == 3){
+    player1.pause();
+    player1.rewind();
+    player3.pause();
+    player3.rewind();
+    player2.loop();
   }
 }
