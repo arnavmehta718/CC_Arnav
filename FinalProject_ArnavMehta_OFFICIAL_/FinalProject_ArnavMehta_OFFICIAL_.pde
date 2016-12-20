@@ -16,7 +16,7 @@ Capture cam;
 String[] cameras = Capture.list();
 int scene = 3;
 int time = 0;
-PImage[] img = new PImage[240];
+PImage[] img = new PImage[180];
 PImage cover1 = new PImage();
 PImage cover2 = new PImage();
 PImage cover3 = new PImage();
@@ -43,6 +43,7 @@ int t6 = 0;
 int t7 = 0;
 int t8 = 0;
 int t9 = 0;
+int currentvid = 0;
 IntList vidcount = new IntList();
 int vid_counter = 1;
 int photo = 0;
@@ -72,7 +73,7 @@ void setup(){
   cover1 = loadImage("juju.jpeg");
   cover2 = loadImage("getlow.jpg");
   cover3 = loadImage("allweknow.png");
-  for(int y = 0; y < 240; y+=1){
+  for(int y = 0; y < 180; y+=1){
     img[y] = loadImage("black.jpg");
   }
   vidcount.append(1);
@@ -84,7 +85,6 @@ void draw(){
     if(cam.available()){
       cam.read();
       background(random(255), random(255), random(255));
-      imageMode(CENTER);
       image(cam,width/2,height/2,width-100,height-100);
     }
     if(counter == 0){
@@ -128,7 +128,7 @@ void draw(){
       img[z] = loadImage(vid_counter + "Image"+icount+".jpg");
       z++;
       icount+=1;
-    if(z == 159){
+    if(z == 179){
       z = 0;
     }
     photo = 0;
@@ -139,16 +139,12 @@ void draw(){
   }
    if(scene == 2){
      while(counter == 0){
-       value1 = int(random(vidcount.size()));
+       value1 = currentvid;
        value2 = int(random(vidcount.size()));
        value3 = int(random(vidcount.size()));
        value4 = int(random(vidcount.size()));
-       value5 = int(random(vidcount.size()));
-       value6 = int(random(vidcount.size()));
-       value7 = int(random(vidcount.size()));
-       value8 = int(random(vidcount.size()));
-       value8 = int(random(vidcount.size()));
-       println(value1,value2,value3,value4,value5,value6,value7,value8,value9);
+
+       println(value1,value2,value3,value4);
        counter+=1;
        background(100,200,0);
        s1 = value1*20;
@@ -159,16 +155,7 @@ void draw(){
        t3 = s3;
        s4 = value4*20;
        t4 = s4;
-       s5 = value5*20;
-       t5 = s5;
-       s6 = value6*20;
-       t6 = s6;
-       s7 = value7*20;
-       t7 = s7;
-       s8 = value8*20;
-       t8 = s8;
-       s9 = value9*20;
-       t9 = s9;
+
        if(song == 1){
          player1.loop();
        }
@@ -179,67 +166,33 @@ void draw(){
          player3.loop();
        }
      }
-    image(img[s1],width/6,(height-100)/6,width/3,(height-100)/3);
+    image(img[s1],width/4,(height-100)/4,width/2,(height-100)/2);
     s1+=1;
     if(s1 == (t1+19)){
       s1 = value1*20;
     }
     println(s1,t1);
 
-    image(img[s2],width/2,(height-100)/6,width/3,(height-100)/3);
+    image(img[s2],(3*width)/4,(height-100)/4,width/2,(height-100)/2);
     s2+=1;
     if(s2 == (t2+19)){
       s2 = value2*20;
     }
     
     
-    image(img[s3],(5*width)/6,(height-100)/6,width/3,(height-100)/3);
+    image(img[s3],(width)/4,(3*(height-100))/4,width/2,(height-100)/2);
     s3+=1;
     if(s3 == (t3+19)){
       s3 = value3*20;
     }
     
     
-    image(img[s4],width/6,(height-100)/2,width/3,(height-100)/3);
+    image(img[s4],(3*width)/4,(3*(height-100))/4,width/2,(height-100)/2);
     s4+=1;
     if(s4 == (t4+19)){
       s4 = value4*20;
     }
     
-    
-    image(img[s5],width/2,(height-100)/2,width/3,(height-100)/3);
-    s5+=1;
-    if(s5 == (t5+19)){
-      s5 = value5*20;
-    }
-    
-    
-    image(img[s6],(5*width)/6,(height-100)/2,width/3,(height-100)/3);
-    s6+=1;
-    if(s6 == (t6+19)){
-      s6 = value6*20;
-    }
-    
-    
-    image(img[s7],width/6,(5*(height-100))/6,width/3,(height-100)/3);
-    s7+=1;
-    if(s7 == (t7+19)){
-      s7 = value7*20;
-    }
-    
-    
-    image(img[s8],width/2,(5*(height-100))/6,width/3,(height-100)/3);
-    s8+=1;
-    if(s8 == (t8+19)){
-      s8 = value8*20;
-    }
-    
-
-    image(img[s9],(5*width)/6,(5*(height-100))/6,width/3,(height-100)/3);
-    s9+=1;
-    if(s9 == (t9+19)){
-      s9 = value9*20;
-    }
     
     rectMode(CENTER);
     fill(0);
@@ -285,8 +238,12 @@ void mousePressed(){
      vid_counter+=1;
      background(0);
      counter = 0;
-     if(vidcount.size() < 12)
+     if(vidcount.size() < 9)
      vidcount.append(1);
+     currentvid+=1;
+     if(currentvid == 9){
+       currentvid = 0;
+     }
      
   }
   if(mouseY >= 0 && mouseY <= 100 && scene == 3){
